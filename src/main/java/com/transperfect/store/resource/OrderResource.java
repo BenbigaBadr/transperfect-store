@@ -6,6 +6,7 @@ import com.transperfect.store.resource.payload.UpdateStatusReq;
 import com.transperfect.store.service.OrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,6 +17,7 @@ public class OrderResource {
     private final OrderService orderService;
 
     @PutMapping(value = "/{orderId}/status")
+    @ResponseStatus(HttpStatus.OK)
     OrderDTO updateStatus(@RequestBody @Valid UpdateStatusReq request, @PathVariable(name = "orderId") Long orderId)
     {
         return orderService.updateStatus(request, orderId);

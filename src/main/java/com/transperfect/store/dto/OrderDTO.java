@@ -1,9 +1,11 @@
 package com.transperfect.store.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -13,7 +15,7 @@ public class OrderDTO {
 
     private String reference;
 
-    private Set<OrderItemDTO> items = new HashSet<>();
+    private List<OrderItemDTO> items;
 
     @JsonProperty("amount")
     public Double getAmount()

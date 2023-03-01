@@ -1,18 +1,20 @@
 package com.transperfect.store.dto;
 
-import lombok.Data;
+import lombok.*;
 
 @Data
 public class OrderItemDTO {
 
-    private ItemDTO item;
+    private Long itemId;
 
-    private OrderDTO order;
+    private double itemPrice;
+
+    private Long orderId;
 
     private long quantity;
 
     public double getPrice()
     {
-        return item.getPrice() * quantity;
+        return itemPrice * quantity;
     }
 }

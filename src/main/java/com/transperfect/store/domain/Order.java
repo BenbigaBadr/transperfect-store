@@ -1,16 +1,20 @@
 package com.transperfect.store.domain;
 
-import com.transperfect.store.service.OrderService;
 import com.transperfect.store.type.OrderStatus;
-import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "ORDER")
+@Table(name = "ORDER_")
 public class Order {
 
     @Id
@@ -22,6 +26,6 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    @OneToMany(mappedBy= "order")
+    @OneToMany(mappedBy= "order", fetch = FetchType.LAZY)
     private List<OrderItem> items;
 }

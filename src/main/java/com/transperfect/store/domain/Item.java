@@ -1,12 +1,15 @@
 package com.transperfect.store.domain;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "ITEM")
 public class Item {
@@ -17,8 +20,8 @@ public class Item {
 
     private String name;
 
-    private Double price;
+    private double price;
 
-    @OneToMany(mappedBy= "item")
+    @OneToMany(mappedBy= "item", fetch = FetchType.LAZY)
     private List<OrderItem> items;
 }

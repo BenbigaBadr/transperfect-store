@@ -1,6 +1,6 @@
 package com.transperfect.store.dto;
 
-import lombok.Data;
+import lombok.*;
 
 @Data
 public class ItemDTO {

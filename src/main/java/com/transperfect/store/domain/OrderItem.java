@@ -1,10 +1,13 @@
 package com.transperfect.store.domain;
 
-import lombok.Data;
+import lombok.*;
 
 import jakarta.persistence.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "ORDER_ITEMS")
 public class OrderItem {
@@ -13,13 +16,13 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ITEM_ID")
     private Item item;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 
-    private Long quantity;
+    private long quantity;
 }

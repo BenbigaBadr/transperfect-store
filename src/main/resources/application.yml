@@ -1,0 +1,43 @@
+server:
+  port: 8088
+
+spring:
+  thymeleaf:
+    check-template: true
+    prefix: classpath:/templates
+    suffix: .html
+    mode: HTML5
+    servlet:
+      content-type: text/html
+
+  datasource:
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE;DATABASE_TO_UPPER=true;MODE=MYSQL
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  flyway:
+    enabled: true
+  mail:
+    host: localhost
+    port: 2525
+    username:
+    password:
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: false
+
+  main:
+    allow-bean-definition-overriding: true
+
+thread:
+  pool:
+    core-size: 2
+    max-size: 4
