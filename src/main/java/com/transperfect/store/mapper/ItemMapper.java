@@ -11,9 +11,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface ItemMapper {
 
-    @Mapping(target = "items", ignore = true)
     ItemDTO toDTO(Item source);
 
-    @InheritConfiguration
     List<ItemDTO> toDTOs(List<Item> sources);
 }
