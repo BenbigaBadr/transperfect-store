@@ -20,25 +20,21 @@ public class MailService {
     @Async("TaskExecutor")
     public void sendMail(MailDTO mailDetails)
     {
+        log.info("SENDING EMAIL ....");
         try {
 
             // Creating a simple mail message
             SimpleMailMessage mailMessage
                     = new SimpleMailMessage();
 
-            // Setting up necessary details
             mailMessage.setFrom(mailDetails.getFrom());
             mailMessage.setTo(mailDetails.getTo());
             mailMessage.setText(mailDetails.getMessage());
             mailMessage.setSubject(mailDetails.getSubject());
-
-            // Sending the mail
             mailSender.send(mailMessage);
         }
-
-        // Catch block to handle the exceptions
         catch (Exception e) {
-            throw new BusinessException(e);
+            log.error("An error has occurred while sending email {}", e);
         }
     }
 }

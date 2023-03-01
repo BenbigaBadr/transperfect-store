@@ -21,7 +21,7 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
-    //private final MailService mailService;
+    private final MailService mailService;
     private final TemplateEngine templateEngine;
 
     @Transactional
@@ -29,7 +29,7 @@ public class OrderService {
         Order order = orderRepository.findById(orderId).orElseThrow(() -> new BusinessException(String.format("Order with Id %s is not found", orderId), HttpStatus.NOT_FOUND));
         order.setStatus(request.getStatus());
         order = orderRepository.save(order);
-        //mailService.sendMail(buildUpdateStatusMail(order));
+        mailService.sendMail(buildUpdateStatusMail(order));
         return orderMapper.toDTO(order);
     }
 
