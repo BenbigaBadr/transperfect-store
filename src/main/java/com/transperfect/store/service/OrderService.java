@@ -1,6 +1,5 @@
 package com.transperfect.store.service;
 
-import com.transperfect.store.configuration.TemplateEngine;
 import com.transperfect.store.domain.Order;
 import com.transperfect.store.dto.MailDTO;
 import com.transperfect.store.dto.OrderDTO;

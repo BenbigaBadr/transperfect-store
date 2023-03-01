@@ -1,19 +1,19 @@
-package com.transperfect.store.configuration;
+package com.transperfect.store.service;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 
 @Component
+@RequiredArgsConstructor
 public class TemplateEngine {
 
-    @Autowired
-    private SpringTemplateEngine templateEngine;
+    private final SpringTemplateEngine springTemplateEngine;
 
     public String generateHtml(String templateName, Context context)
     {
-        return templateEngine.process(templateName, context);
+        return springTemplateEngine.process(templateName, context);
     }
 }
