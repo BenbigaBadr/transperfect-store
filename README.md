@@ -19,18 +19,16 @@
   {
     "id": 2,
     "reference": "ORDER 2",
-    "items": [
+    "shoppingCart": [
         {
             "itemId": 3,
             "itemPrice": 31.8,
-            "orderId": 2,
             "quantity": 5,
             "price": 159.0
         },
         {
             "itemId": 4,
             "itemPrice": 11.6,
-            "orderId": 2,
             "quantity": 10,
             "price": 116.0
         }
