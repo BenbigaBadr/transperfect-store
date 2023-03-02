@@ -2,8 +2,7 @@ package com.transperfect.store.mapper;
 
 import com.transperfect.store.domain.Item;
 import com.transperfect.store.dto.ItemDTO;
- import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.Mapper;
 
 import java.util.List;
 

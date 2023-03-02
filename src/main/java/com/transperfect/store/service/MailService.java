@@ -1,8 +1,6 @@
 package com.transperfect.store.service;
 
 import com.transperfect.store.dto.MailDTO;
-import com.transperfect.store.exception.BusinessException;
-import com.transperfect.store.exception.TechnicalException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.SimpleMailMessage;
