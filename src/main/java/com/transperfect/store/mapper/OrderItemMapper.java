@@ -13,7 +13,6 @@ public interface OrderItemMapper {
 
     @Mapping(source = "source.item.price", target = "itemPrice")
     @Mapping(source = "source.item.id", target = "itemId")
-    @Mapping(source = "source.order.id", target = "orderId")
     OrderItemDTO toDTO(OrderItem source);
 
     @InheritConfiguration

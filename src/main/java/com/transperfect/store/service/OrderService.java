@@ -34,7 +34,7 @@ public class OrderService {
 
     private MailDTO buildUpdateStatusMail(Order order)
     {
-        String subject = "ORDER ".concat(order.getReference()).concat(" has been updated");
+        String subject = "Order with reference : ".concat(order.getReference()).concat(" has been updated");
         Context context = new Context();
         context.setVariable("status", order.getStatus().name());
         context.setVariable("reference", order.getReference());

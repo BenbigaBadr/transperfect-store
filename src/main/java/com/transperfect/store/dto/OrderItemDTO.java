@@ -9,8 +9,6 @@ public class OrderItemDTO {
 
     private double itemPrice;
 
-    private Long orderId;
-
     private long quantity;
 
     public double getPrice()

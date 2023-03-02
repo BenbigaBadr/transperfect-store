@@ -12,6 +12,7 @@ public class OrderDTO {
 
     private String reference;
 
+    @JsonProperty("shoppingCart")
     private List<OrderItemDTO> items;
 
     @JsonProperty("amount")
