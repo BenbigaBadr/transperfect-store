@@ -7,4 +7,5 @@ import lombok.NoArgsConstructor;
 public final class ApiPath {
 
     public static final String ORDERS = "/orders";
+    public static final String ORDER_STATUS = "/{orderId}/status";
 }

@@ -16,7 +16,7 @@ public class OrderResource {
 
     private final OrderService orderService;
 
-    @PutMapping(value = "/{orderId}/status")
+    @PutMapping(value = ApiPath.ORDER_STATUS)
     @ResponseStatus(HttpStatus.OK)
     OrderDTO updateStatus(@RequestBody @Valid UpdateStatusReq request, @PathVariable(name = "orderId") Long orderId)
     {

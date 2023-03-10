@@ -11,9 +11,9 @@ public class TechnicalException extends Exception {
     private HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
 
 
-    public TechnicalException(String message, Exception e) {
-        super(message, e);
-        this.message = message;
+    public TechnicalException(Exception e) {
+        super(e.getMessage(), e);
+        this.message = e.getMessage();
     }
 
     public TechnicalException(String message, HttpStatus status) {
