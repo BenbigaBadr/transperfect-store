@@ -26,17 +26,13 @@ public class MailServiceImpl implements MailService {
     {
         log.info("SENDING EMAIL ....");
         try {
-
             MimeMessage mimeMessage = mailSender.createMimeMessage();
-
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, false, StandardCharsets.UTF_8.name());
-
             messageHelper.setFrom(mailDetails.getFrom());
             messageHelper.setTo(mailDetails.getTo());
             messageHelper.setSubject(mailDetails.getSubject());
             messageHelper.setText(mailDetails.getMessage(), Boolean.TRUE);
             mailSender.send(mimeMessage);
-
             log.info("Email Sent to {}, from {}, message {}", mailDetails.getTo(), mailDetails.getFrom(), mailDetails.getMessage());
         }
         catch (Exception e) {
