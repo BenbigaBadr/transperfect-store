@@ -1,6 +1,7 @@
 package com.transperfect.store.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.transperfect.store.type.OrderStatus;
 import lombok.Data;
 
 import java.util.List;
@@ -9,6 +10,8 @@ import java.util.List;
 public class OrderDTO {
 
     private Long id;
+
+    private OrderStatus status;
 
     private String reference;
 
