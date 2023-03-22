@@ -18,6 +18,9 @@
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<jpamodelgen.version>5.3.10.Final</jpamodelgen.version>
 		<thymleaf.version>2.1.6.RELEASE</thymleaf.version>
+		<dependency-check-maven.version>8.1.2</dependency-check-maven.version>
+		<gatlin.version>3.9.2</gatlin.version>
+		<gatlin-plugin.version>4.3.0</gatlin-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -87,6 +90,13 @@
 			<artifactId>flyway-core</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>io.gatling.highcharts</groupId>
+			<artifactId>gatling-charts-highcharts</artifactId>
+			<version>${gatlin.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -120,24 +130,24 @@
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>3.0.0-M1</version>
 			</plugin>
+
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.0</version>
+				<groupId>io.gatling</groupId>
+				<artifactId>gatling-maven-plugin</artifactId>
+				<version>${gatlin-plugin.version}</version>
 				<configuration>
-					<dependencies>
-						<dependency>
-							<groupId>org.junit.platform</groupId>
-							<artifactId>junit-platform-surefire-provider</artifactId>
-							<version>1.0.3</version>
-						</dependency>
-						<dependency>
-							<groupId>org.junit.jupiter</groupId>
-							<artifactId>junit-jupiter-engine</artifactId>
-							<version>${junit-jupiter.version}</version>
-						</dependency>
-					</dependencies>
+					<runMultipleSimulations>true</runMultipleSimulations>
+					<includes>
+						<include>com.transperfect.store.simulation.*</include>
+					</includes>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
